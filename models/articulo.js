@@ -13,7 +13,6 @@ module.exports = (sequelize, type) => {
         descripcion: type.STRING,
         costo: type.FLOAT,
         cantidad: type.INTEGER,
-        idCategoria: type.UUID,
         calificacion: type.FLOAT
 
     },

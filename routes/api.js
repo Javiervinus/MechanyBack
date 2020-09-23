@@ -9,3 +9,12 @@ router.use('/usuario', usuarioRouter);
 const mecanicoRouter = require('./api/mecanico');
 router.use('/mecanico', mecanicoRouter);
 module.exports = router;
+//router comentarios
+const comentarioRouter = require('./api/comentario');
+router.use('/comentario', comentarioRouter);
+//router tienda
+const tiendaRouter = require('./api/tienda');
+router.use('/tienda', tiendaRouter);
+//router articulo
+const articuloRouter = require('./api/articulo');
+router.use('/articulo', articuloRouter);
