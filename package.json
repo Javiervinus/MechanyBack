@@ -1,0 +1,19 @@
+{
+  "name": "mechanyback",
+  "version": "1.0.0",
+  "description": "back-end de app Mechany",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js -e ejs,js,css,html,jpg,png,scss"
+  },
+  "author": "Javier",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mysql2": "^2.2.3",
+    "sequelize": "^6.3.5",
+    "sqlite3": "^5.0.0",
+    "uuidv4": "^6.2.3"
+  }
+}
