@@ -25,7 +25,9 @@ const Articulo= ArticuloModel(sequelize,Sequelize);
 //Promocion
 const PromocionModel= require("./models/promocion");
 const Promocion= PromocionModel(sequelize,Sequelize);
-
+//ComentarioxArticulo
+const ComentarioAModel= require('./models/comentarioA');
+const ComentarioA= ComentarioAModel(sequelize,Sequelize);
 
 //relaciones
 Persona.hasOne(Usuario, {
@@ -60,13 +62,21 @@ Articulo.belongsTo(Tienda,{
   as: 'TiendaArticulo',
   foreignKey:'idTienda'
 });
-Tienda.hasMany(Promocion,{
-  as: 'TiendaPromocion',
-  foreignKey:'idTienda'
+Articulo.hasMany(Promocion,{
+  as: 'ArticuloPromocion',
+  foreignKey:'idArticulo'
 });
-Promocion.belongsTo(Tienda,{
-  as: 'TiendaPromocion',
-  foreignKey:'idTienda'
+Promocion.belongsTo(Articulo,{
+  as: 'ArticuloPromocion',
+  foreignKey:'idArticulo'
+});
+Articulo.hasMany(ComentarioA,{
+  as: 'ArticuloComentario',
+  foreignKey:'idArticulo'
+});
+ComentarioA.belongsTo(Articulo,{
+  as: 'ArticuloComentario',
+  foreignKey:'idArticulo'
 });
 
 //Sincronizacion
@@ -82,6 +92,7 @@ module.exports = {
   Comentario,
   Tienda,
   Articulo,
-  Promocion
+  Promocion,
+  ComentarioA
 }
 console.log("All models were synchronized successfully.");

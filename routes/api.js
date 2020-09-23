@@ -18,3 +18,9 @@ router.use('/tienda', tiendaRouter);
 //router articulo
 const articuloRouter = require('./api/articulo');
 router.use('/articulo', articuloRouter);
+//router comentariosArticulo
+const comentarioARouter = require('./api/comentarioA');
+router.use('/comentarioA', comentarioARouter);
+//router Promocion
+const promocionRouter = require('./api/promocion');
+router.use('/promocion', promocionRouter);

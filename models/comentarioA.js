@@ -1,14 +1,15 @@
 module.exports = (sequelize, type) => {
-    return sequelize.define('Promocion', {
-        idPromocion: {
+    return sequelize.define('ComentarioA', {
+        idComentario: {
             type: type.UUID,
             primaryKey: true,
         },
-        idArticulo: type.UUID,
-        promocion:  type.STRING,    
+        idArticulo: {
+            type: type.UUID
+        },
+        comentario: type.STRING(100)
     },
         {
             freezeTableName: true,
         });
-
 }

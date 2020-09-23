@@ -43,3 +43,15 @@ exports.obtenerTodos = async (req, res) => {
       }
 
 };
+exports.stock= async (req, res)=>{
+
+    try {
+        let idTienda= req.params.idTienda;
+        const arti = await Articulo.findAll({ where: { idTienda } });
+        return res.json(arti);
+      } catch (err) {
+        console.log(err)
+        res.status(400).send("Error al buscar stock en tienda")
+      }
+
+};

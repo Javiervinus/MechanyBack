@@ -1,4 +1,4 @@
-var { Tienda } = require('../db');
+var { Tienda,Articulo } = require('../db');
 var { uuid } = require("uuidv4");
 exports.obtenerTodos = async (req, res) => {
     try {

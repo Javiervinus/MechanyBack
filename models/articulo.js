@@ -7,7 +7,7 @@ module.exports = (sequelize, type) => {
         idTienda: type.UUID,
         articulo: {
             type: type.STRING,
-            unique: true
+            unique: false
         },
         marca: type.STRING,
         descripcion: type.STRING,
