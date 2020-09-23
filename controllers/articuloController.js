@@ -7,8 +7,7 @@ exports.obtenerTodos = async (req, res) => {
         include: [
           {
             model: Tienda,
-            as: "TiendaArticulo",
-            attributes: ["direccion"]
+            as: "TiendaArticulo"
           }
         ]
   
@@ -35,7 +34,16 @@ exports.obtenerTodos = async (req, res) => {
 
     try {
         let idArticulo= req.params.idArticulo;
-        const arti = await Articulo.findOne({ where: { idArticulo } });
+        const arti = await Articulo.findOne({ where: { idArticulo },
+          include: [
+            {
+              model: Tienda,
+              as: "TiendaArticulo",
+              attributes: ["direccion","coordenadax","coordenaday"]
+            }
+          ]
+        
+        });
         return res.json(arti);
       } catch (err) {
         console.log(err)
