@@ -8,7 +8,7 @@ exports.obtenerTodos = async (req, res) => {
           {
             model: Persona,
             as: "PersonaMecanico",
-            attributes: ["nombres", "apellidos","direccion"]
+            attributes: ["nombres", "apellidos","direccion","telefono"]
           }
         ]
   
