@@ -3,7 +3,8 @@ var { uuid } = require("uuidv4");
 
 exports.obtenerTodos = async (req, res) => {
   try {
-    const comentarios = await ComentarioA.findAll();
+    const comentarios = await ComentarioA.findAll({
+    });
     return res.json(comentarios);
   } catch (err) {
     console.log(err)
@@ -27,7 +28,10 @@ exports.buscarPorId= async (req, res)=>{
 
     try {
         let idArticulo= req.params.idArticulo;
-        const Comen = await ComentarioA.findAll({ where: { idArticulo } });
+        const Comen = await ComentarioA.findAll({ where: { idArticulo },
+          order: [['createdAt', 'DESC']]
+        
+        });
         return res.json(Comen);
       } catch (err) {
         console.log(err)

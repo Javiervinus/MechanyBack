@@ -27,7 +27,8 @@ exports.buscarPorId= async (req, res)=>{
 
     try {
         let idMecanico= req.params.idMecanico;
-        const Comen = await Comentario.findAll({ where: { idMecanico } });
+        const Comen = await Comentario.findAll({ where: { idMecanico },
+          order: [['createdAt', 'DESC']] });
         return res.json(Comen);
       } catch (err) {
         console.log(err)
