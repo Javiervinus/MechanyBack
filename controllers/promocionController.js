@@ -25,12 +25,12 @@ exports.crear = async (req, res) => {
 exports.buscarPorId= async (req, res)=>{
 
     try {
-        let idArticulo= req.params.idArticulo;
-        const Prom = await Promocion.findAll({ where: { idArticulo } });
+        let idTienda= req.params.idTienda;
+        const Prom = await Promocion.findAll({ where: { idTienda } });
         return res.json(Prom);
       } catch (err) {
         console.log(err)
-        res.status(400).send("Error al buscar promocionxIdArticulo")
+        res.status(400).send("Error al buscar promocionxIdTienda")
       }
 
 };

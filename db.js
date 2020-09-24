@@ -62,13 +62,13 @@ Articulo.belongsTo(Tienda,{
   as: 'TiendaArticulo',
   foreignKey:'idTienda'
 });
-Articulo.hasMany(Promocion,{
-  as: 'ArticuloPromocion',
-  foreignKey:'idArticulo'
+Tienda.hasMany(Promocion,{
+  as: 'TiendaPromocion',
+  foreignKey:'idTienda'
 });
-Promocion.belongsTo(Articulo,{
-  as: 'ArticuloPromocion',
-  foreignKey:'idArticulo'
+Promocion.belongsTo(Tienda,{
+  as: 'TiendaPromocion',
+  foreignKey:'idTienda'
 });
 Articulo.hasMany(ComentarioA,{
   as: 'ArticuloComentario',
@@ -80,7 +80,7 @@ ComentarioA.belongsTo(Articulo,{
 });
 
 //Sincronizacion
-sequelize.sync({ alter: false }).then(() => {
+sequelize.sync({ alter: true }).then(() => {
   console.log('tablas sincronizadas');
 })
 
